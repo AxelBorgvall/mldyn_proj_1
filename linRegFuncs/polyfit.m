@@ -1,22 +1,30 @@
 
 function m = polyfit(x, y, lambda, n)
-    % Extend input x to include polynomial terms: [1, x, x^2, ..., x^n] per feature
-    N = size(x, 1);
-    d = size(x, 2);
+    % x: [N, d_in]
+    % y: [N, d_out]
+    % lambda: scalar
+    % n: number of polynomial terms (powers 0..n-1)
 
-    % Create N x d x (n+1) tensor: each x(i,j) raised to p(1), p(2), ..., p(n+1)
-    p = reshape(0:n, 1, 1, []);  % 1×1×(n+1)
-    powers = x .^ p;             % N×d×(n+1) guaranteed
+    N = size(x,1);
+    d = size(x,2);
 
-    % Reshape to N x (d*(n+1))
+    % powers 0..(n-1)
+    p = reshape(0:(n-1), 1, 1, []);  % 1x1xn
+
+    % Create N x d x n tensor of x.^p
+    powers = x .^ p;  % N x d x n
+
+    % Reshape to N x (d*n)
     x_ext = reshape(powers, N, []);
-
-    % DO NOT TOUCH y — it stays N x 1 (or N x q)
-    % y_ext = y;  % not needed
 
     % Fit regularized regression
     m = linRegressRegul(x_ext, y, lambda);
 
-    % Store degree
+    % Reshape theta from (d*n) x d_out to d x d_out x n (matching Python)
+    d_out = size(m.theta, 2);
+    m.theta = reshape(m.theta, d, n, d_out);   % d x n x d_out
+    m.theta = permute(m.theta, [1 3 2]);       % d x d_out x n
+
+    % Store polynomial degree
     m.n = n;
 end
