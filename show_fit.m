@@ -1,7 +1,6 @@
 addpath('linRegFuncs');
 
 
-%{
 % Parameters (match py_test_1)
 N = 20;
 d_in = 3;
@@ -36,10 +35,11 @@ disp(size(m.theta));
 err_mean = mean(y - evalModel(m, x), 'all');
 disp('mean error (y - evalModel):');
 disp(err_mean);
-%}
+
+disp(m.model)
 
 
-
+%{
 N = 20;
 d_in = 1;
 d_out = 1;
@@ -68,3 +68,4 @@ plotModel(m,x,y);
 
 
 
+%}
