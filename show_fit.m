@@ -1,6 +1,21 @@
 addpath('linRegFuncs');
+addpath('canvas_code');
+N=100;
+Nval=1000;
+var=1;
+
+%[x,y]=linearData(N,var);
+%[x_val,y_val]=linearData(Nval,var);
+
+[x,y]=polyData(N,var,0);
+[x_val,y_val]=polyData(Nval,var,0);
+
+m=polyfit(x,y,0,3);
+
+plotModel(m,x,y);
 
 
+%{
 % Parameters (match py_test_1)
 N = 20;
 d_in = 3;
@@ -36,8 +51,8 @@ err_mean = mean(y - evalModel(m, x), 'all');
 disp('mean error (y - evalModel):');
 disp(err_mean);
 
-disp(m.model)
-
+disp(m.model);
+%}
 
 %{
 N = 20;

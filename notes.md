@@ -2,10 +2,10 @@
 1. Add noise to training and check uncertainty or smth
 2. verify regularization. Include in report
 3. validate and include polyfit
-4. make a multiplot. Use cell arrays of models and and evaluate in turn. 
+4. make a multiplot. Use cell arrays of models and and evaluate in turn. %%
 
 ## part 2
-1. Make plot with both linreg and knn reg in the same plot.
+1. Make plot with both linreg and knn reg in the same plot. %%
 
 ## part 3
 

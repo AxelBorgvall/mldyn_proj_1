@@ -1,3 +1,22 @@
+
+addpath('linRegFuncs');
+addpath('canvas_code');
+N=100;
+Nval=1000;
+var=1;
+
+%[x,y]=linearData(N,var);
+%[x_val,y_val]=linearData(Nval,var);
+
+[x,y]=linearData(N,var,0);
+[x_val,y_val]=linearData(Nval,var,0);
+
+mlin=linRegress(x,y);
+mknn=knnRegress(x,y,3);
+
+multiModelPlot({mlin,mknn}, x, y);
+
+%{
 addpath('linRegFuncs')
 
 % filepath: c:\Users\axelb\matlabProjects\mldyn_proj_1\linRegFuncs\show_knn.m
@@ -27,3 +46,5 @@ disp(sum(x_query,2));
 
 % Plot training data and fitted model (1D)
 plotModel(m, x_train, y_train);
+
+%}
