@@ -1,5 +1,6 @@
 
 function m = polyfit(x, y, lambda, n)
+    n=n+1;
     % x: [N, d_in]
     % y: [N, d_out]
     % lambda: scalar

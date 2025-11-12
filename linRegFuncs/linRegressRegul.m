@@ -5,5 +5,5 @@ function m = linRegressRegul(x, y, lambda)
     y2 = [y; zeros(p, size(y,2))];
 
     % Call standard least squares estimator
-    m = linRegress(x2, y2);
+    m = LinRegress(x2, y2);
 end

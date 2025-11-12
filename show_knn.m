@@ -12,7 +12,7 @@ var=1;
 [x_val,y_val]=linearData(Nval,var,0);
 
 mlin=linRegress(x,y);
-mknn=knnRegress(x,y,3);
+mknn=knnRegress(x,y,7);
 
 multiModelPlot({mlin,mknn}, x, y);
 
