@@ -58,7 +58,8 @@ for i = 1:length(N_values)
     
     y_pred = evalModel(m_lin{i}, x_val);
     mse = mean((y_val - y_pred).^2);
-    disp(['MSE for linreg, N = ', num2str(N_values(i)),': ', num2str(mse),' est param: ', num2str(m_lin{i}.theta)]);
+    disp(['MSE for linreg, N = ', num2str(N_values(i)),': ', num2str(mse),' est param: ', num2str(m_lin{i}.theta), ' variance: ']);
+    disp(num2str(m_lin{i}.variance));
 end
 
 disp('');

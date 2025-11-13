@@ -25,6 +25,7 @@
     of this validation from the one you did in Problem 1.a. There you validated that you
     program gave the same variance as the theoretical expression. Here you validate that
     the estimate you obtain has the variance you validated earlier
+    
     - ry KNN models on some of the settings above. How many neighbors is good de-
     pending on the noise level and the number of data? Don’t spend a lot on time on
     this, a very approximate answer is enough indicating how thebest number of neighbors
